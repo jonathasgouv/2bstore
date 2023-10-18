@@ -1,0 +1,30 @@
+.banners {
+    width: 100%;
+
+    .bannerItem {
+        width: 100%;
+        height: auto;
+    }
+
+    .slick-dots {
+        bottom: 22px;
+
+        li {
+            button {
+                &:before {
+                    font-size: 14px;
+                    color: #D9D8E6;
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+
+            &.slick-active {
+                button {
+                    &:before {
+                        color: #E8335D;
+                    }
+                }
+            }
+        }
+    }
+}

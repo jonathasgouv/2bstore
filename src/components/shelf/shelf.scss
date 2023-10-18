@@ -1,0 +1,59 @@
+.shelfWrapper {
+    width: 100%;
+    margin: 48px 0;
+
+    .shelfTitle {
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center;
+        color: #110d2f;
+    }
+
+    .shelfCarousel {
+        .productItem {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin: 20px 0;
+
+            .productFlags {
+                display: flex;
+                gap: 3px;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                justify-content: center;
+
+                .productDiscount,
+                .productHighlight {
+                    border-radius: 2px;
+                    background: #545073;
+                    font-size: 10px;
+                    padding: 5px 9px;
+                    color: #fff7fa;
+                    border-radius: 4px;
+                }
+
+                .productDiscount {
+                    background: #E8335D;
+                }
+            }
+
+            .productImage {
+                width: 90%;
+                margin: auto;
+                aspect-ratio: 1;
+                object-fit: cover;
+            }
+
+            .productTitle {
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                line-height: 16px;
+                text-align: center;
+                color: #110d2f;
+            }
+        }
+    }
+}
