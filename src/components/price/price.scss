@@ -1,0 +1,35 @@
+.ProductPrice {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 20px 0;
+    
+    .ProductPrices {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+
+        .ProductListPrice {
+            font-weight: normal;
+            font-size: 12px;
+            color: #545073;
+        }
+
+        .ProductBestPrice {
+            font-weight: bold;
+            font-size: 16px;
+            color: #545073;
+        }
+    }
+
+    .ProductInstallments {
+        font-size: 12px;
+        color: #110d2f;
+
+        span {
+            font-weight: bold;
+            color: #e8335d;
+        }
+    }
+}

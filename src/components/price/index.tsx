@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import { pickMaxInstallmentsOptionWithoutInterest } from './pickInstallments'
 
+import './price.scss'
+
 interface IPrice {
     item: Item
 }

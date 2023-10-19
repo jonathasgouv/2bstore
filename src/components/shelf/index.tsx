@@ -4,6 +4,7 @@ import { getProductsByCollection } from '../../helpers/vtex';
 
 import './shelf.scss'
 import Price from '../price';
+import Product from './product';
 
 interface IShelf {
     title?: string;
@@ -39,32 +40,7 @@ const Shelf: FC<IShelf> = ({ title, collectionId, numberOfProducts }) => {
         <div className="shelfWrapper">
             {title && <h3 className="shelfTitle">{title}</h3>}
             <Slider {...settings} className="shelfCarousel">
-                {products.map(product => {
-                    console.log({product})
-                    const [sku] = product.items
-                    const [image] = sku.images
-                    const highlights = product.clusterHighlights
-                    const { ListPrice, Price: SellingPrice } =  sku.sellers[0].commertialOffer
-
-                    const discount = (ListPrice > SellingPrice) ? Math.round(100 * (1 - (SellingPrice / ListPrice))) : 0
-
-                    return (
-                        <div className="productItem" key={sku.itemId}>
-                            <div className="productFlags">
-                                {discount && <p className="productDiscount">{`-${discount}%`}</p>}
-                                {Object.keys(highlights).map(key => <p className="productHighlight">{ highlights[key] }</p>)}
-                            </div>
-
-                            <img className="productImage" src={image.imageUrl} alt="Imagem do produto"  />
-
-                            <p className="productTitle">
-                                {sku.name}
-                            </p>
-
-                            <Price item={sku} />
-                        </div>
-                    )
-                })}
+                {products.map(product => <Product product={product} key={product.productId} />)}
             </Slider>
         </div>
     )

@@ -65,9 +65,24 @@ interface Product {
     }
     titleTag: string
     jsonSpecifications: string
+    skuSpecifications: {
+        field: {
+            id: number
+            name: string
+            isActive: string
+            position: number
+            type: string
+        }
+        values: {
+            id: number
+            name: string
+            position: number
+        }[]
+    }[]
 }
 
 interface Item {
+    Tamanho: [string]
     itemId: string
     name: string
     nameComplete: string
