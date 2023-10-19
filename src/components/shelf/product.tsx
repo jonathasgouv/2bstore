@@ -8,7 +8,7 @@ interface IProduct {
 }
 
 const Product: FC<IProduct> = ({ product }) => {
-    const [productUrl, setProductUrl] = useState(`/${product.linkText}/p`)
+    const [selectedSku, setSelectedSKU] = useState(product.items[0].itemId)
     const [sku] = product.items
     const [image] = sku.images
     const highlights = product.clusterHighlights
@@ -25,9 +25,9 @@ const Product: FC<IProduct> = ({ product }) => {
 
             <img className="productImage" src={image.imageUrl} alt="Imagem do produto" />
 
-            <SizeSelector product={product} onSelect={(sku) =>setProductUrl(`/${product.linkText}/p?sku=${sku}`)} />
+            <SizeSelector product={product} onSelect={(sku) => setSelectedSKU(sku)} />
 
-            <Link className="productTitle" to={productUrl}>
+            <Link className="productTitle" to={`/${product.linkText}/p?sku=${selectedSku}`}>
                 {sku.name}
             </Link>
 

@@ -1,4 +1,6 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
+
+import './sizeSelector.scss'
 
 interface ISizeSelector {
     product: Product
@@ -6,6 +8,8 @@ interface ISizeSelector {
 }
 
 const SizeSelector: FC<ISizeSelector> = ({ product, onSelect }) => {
+    const [selectedSize, setSelectedSize] = useState(product.items[0].Tamanho[0].split('/')[0])
+
     const sizesSpec = product.skuSpecifications.find(spec => spec.field.name === 'Tamanho')
 
     if (!sizesSpec) return null
@@ -25,13 +29,20 @@ const SizeSelector: FC<ISizeSelector> = ({ product, onSelect }) => {
         }
     })
 
+    const isSelectedSize = (size: string) => size === selectedSize
+
+    const selectSize = (sizeName: string, sizeSku: string) => {
+        setSelectedSize(sizeName)
+        onSelect(sizeSku)
+    }
+
     return (
         <div className="productSizes">
             {sizes.map(size => {
                 return (
                     <>
                         {size.sku && (
-                            <button className="productSize" onClick={() => {onSelect(size.sku as string)}}>
+                            <button className={`productSize ${isSelectedSize(size.name) ? 'selected' : ''}`} onClick={() => selectSize(size.name, size.sku)}>
                                 {size.name}
                             </button>
                         )}

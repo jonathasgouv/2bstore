@@ -1,0 +1,35 @@
+.productSizes {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: auto;
+    gap: 8px;
+
+    .productSize {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #ffccd8;
+        font-weight: bold;
+        font-size: 9px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        color: #e8335d;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            background: transparent;
+            border: solid 1px #E8335D;         
+        }
+
+        &.selected {
+            background: #E8335D;
+            border: solid 1px #E8335D;
+            color: #fff; 
+        }
+    }
+}
