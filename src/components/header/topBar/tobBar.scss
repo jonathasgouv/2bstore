@@ -16,6 +16,10 @@
             font-weight: bold;
             color: #E8335D;
         }
+
+        @media (max-width: 768px) {
+            font-size: 10px;
+        }
     }
 
     .slick-prev, .slick-next {

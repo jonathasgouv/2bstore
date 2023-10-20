@@ -1,8 +1,8 @@
-header {
+#root > header {
     position: sticky;
     top: 0;
     background-color: #110D2F;
-    z-index: 1;
+    z-index: 999;
     
     .container {
         border-top: solid 1px #545073;
@@ -13,6 +13,10 @@ header {
         padding: 20px 0;
 
         .departments {
+            @media (max-width: 768px) {
+                display: none;
+            }
+
             &List {
                 display: flex;
                 gap: 48px;
@@ -53,6 +57,10 @@ header {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+            }
+
+            &:hover {
+                cursor: pointer;
             }
         }
     }

@@ -36,14 +36,20 @@ const SizeSelector: FC<ISizeSelector> = ({ product, onSelect }) => {
         onSelect(sizeSku)
     }
 
+    const truncateSize = (text: string) => {
+        if (text.includes(',')) return text.substring(0, 4).trim()
+    
+        return text.substring(0, 3).trim()
+    }
+
     return (
         <div className="productSizes">
             {sizes.map(size => {
                 return (
                     <>
                         {size.sku && (
-                            <button className={`productSize ${isSelectedSize(size.name) ? 'selected' : ''}`} onClick={() => selectSize(size.name, size.sku)}>
-                                {size.name}
+                            <button key={size.sku} className={`productSize ${isSelectedSize(size.name) ? 'selected' : ''}`} onClick={() => selectSize(size.name, size.sku as string)}>
+                                {truncateSize(size.name)}
                             </button>
                         )}
                     </>

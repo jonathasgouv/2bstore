@@ -6,7 +6,15 @@
 
     margin: 30px 0;
 
+    @media (max-width: 768px) {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: auto;
+    }
+
     .imageElm {
         width: 100%;
+        max-width: 100%;
+        flex-shrink: 0;
     }
 }

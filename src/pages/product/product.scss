@@ -1,0 +1,99 @@
+main {
+    .productMain {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 60px;
+        margin: 40px 0;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .productInfo {
+            max-width: 400px;
+
+            @media (max-width: 768px) {
+                max-width: 100%;
+            }
+
+            .productName {
+                font-weight: bold;
+                font-size: 20px;
+                letter-spacing: 0.05em;
+                color: #110d2f;
+            }
+
+            .productRef {
+                font-size: 12px;
+                letter-spacing: 0.05em;
+                color: #110d2f;
+                margin: 10px 0;
+            }
+
+            .ProductPrice {
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 16px;
+                padding: 16px 0;
+                margin: 20px 0;
+                border-top: solid 1px #D9D8E6;
+                border-bottom: solid 1px #D9D8E6;
+            }
+
+            .productSizesWrapper {
+                margin: 20px 0;
+
+                .productSizesTitle {
+                    font-weight: normal;
+                    font-size: 12px;
+                    letter-spacing: 0.05em;
+                    color: #110d2f;
+                    margin-bottom: 10px;
+
+                    b {
+                        font-weight: bold;
+                    }
+                }
+
+                .productSizes {
+                    justify-content: flex-start;
+                }
+            }
+
+            .productAddToCart {
+                width: 100%;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .productDescription {
+        width: 100%;
+        padding: 100px 20%;
+        background: #fff7fa;
+        margin: 80px 0;
+
+        @media (max-width: 768px) {
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        &Title {
+            font-weight: bold;
+            font-size: 20px;
+            color: #110d2f;
+        }
+
+        &Text {
+            font-weight: normal;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            color: #110d2f;
+            margin: 20px 0;
+        }
+    }
+}

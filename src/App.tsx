@@ -8,9 +8,13 @@ import {
 
 import Home from './pages/home';
 import { getOrderFormById } from './helpers/vtex';
-import use2BStore from './store/2bStore';
+import use2BStore from './stores/2bStore';
 
 import './App.scss'
+import MiniCart from './components/miniCart';
+import Footer from './components/footer';
+import Product from './pages/product';
+import Wrapper from './Wrapper';
 
 const App = () => {
   const { updateOrderForm, orderForm } = use2BStore()
@@ -19,20 +23,22 @@ const App = () => {
     const orderForm = await getOrderFormById(orderFormId || '')
 
     updateOrderForm(orderForm)
-    
-    localStorage.setItem('orderFormId', orderFormId || '')
+
+    localStorage.setItem('orderFormId', orderForm?.orderFormId || '')
   }
 
   useEffect(() => {
     if (orderForm) return
 
     const orderFormId = localStorage.getItem('orderFormId');
-    
+
     setOrderForm(orderFormId);
   })
 
   return (
     <Router>
+      <Wrapper>
+        <MiniCart />
         <Header />
         <Routes>
           {/* <Route path="/about">
@@ -42,7 +48,10 @@ const App = () => {
             <Users />
           </Route> */}
           <Route path="/" element={<Home />} />
+          <Route path="/:slug/p" element={<Product />} />
         </Routes>
+        <Footer />
+      </Wrapper>
     </Router>
   );
 }

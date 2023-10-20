@@ -1,9 +1,15 @@
 import { FC } from 'react'
 import Slider, { Settings as SliderSettings }   from "react-slick";
+import { Link } from 'react-router-dom';
+
 import './bannerCarousel.scss'
 
 interface IBannerCarousel {
-    images: string[];
+    images: {
+        desktop: string;
+        mobile: string;
+        link?: string;
+    }[];
 }
 
 const BannerCarousel: FC<IBannerCarousel> = ({ images }) => {
@@ -14,13 +20,20 @@ const BannerCarousel: FC<IBannerCarousel> = ({ images }) => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 5000
     };
 
     return (
         <Slider {...settings} className="banners bannersCarousel">
-            {images.map(img => <img key={img} src={img} alt="bannerItem" />)}
+            {images.map(img => (
+                <Link to={img.link || ''}>
+                    <picture>
+                        <source srcSet={img.desktop} media="(min-width: 768px)" />
+                        <img src={img.mobile} className="bannerItem" alt="Banner" loading="eager" />
+                    </picture>
+                </Link>
+            ))}
         </Slider>
     )
 }

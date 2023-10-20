@@ -1,0 +1,26 @@
+.productAddToCart {
+    position: relative;
+    height: 40px;
+    padding: 0 44px;
+    border-radius: 20px;
+    border: none;
+    background: #e8335d;
+    font-weight: bold;
+    font-size: 12px;
+    color: #FFF7FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background: #cf1c46;
+    }
+
+    .loader {
+        position: absolute;
+        left: 50%;
+        top: 35%;
+    }
+}

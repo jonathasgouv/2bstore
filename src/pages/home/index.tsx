@@ -14,20 +14,24 @@ import Shelf from "../../components/shelf"
 const Home = () => {
   return (
     <main>
-        <BannerCarousel images={[Banner, Banner, Banner]}/>
+      <BannerCarousel images={[{ desktop: Banner, mobile: "https://fakeimg.pl/480x480/000/fff" }, { desktop: Banner, mobile: "https://fakeimg.pl/480x480/000/fff" }, { desktop: Banner, mobile: "https://fakeimg.pl/480x480/000/fff" }]} />
 
-        <div className="globalContainer">
-            <Shelf collectionId={142} title="LANÇAMENTOS" />
+      <div className="globalContainer">
+        <Shelf collectionId={144} title="LANÇAMENTOS" />
 
-            <ImageRow images={
-                [
-                    {url: BannerCamisetas, redirectTo: '/'},
-                    {url: BannerCanecas},
-                    {url: BannerSqueeze},
-                    {url: BannerBottons}
-                ]
-            }/>
-        </div>
+        <Shelf collectionId={143} title="OS MAIS VENDIDOS" />
+
+        <ImageRow images={
+          [
+            { url: BannerCamisetas, redirectTo: '/' },
+            { url: BannerCanecas },
+            { url: BannerSqueeze },
+            { url: BannerBottons }
+          ]
+        } />
+
+        <Shelf collectionId={147} title="OFERTAS IMPERDÍVEIS" />
+      </div>
     </main>
   )
 }

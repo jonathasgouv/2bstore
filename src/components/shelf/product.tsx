@@ -2,12 +2,15 @@ import { FC, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Price from '../price';
 import SizeSelector from '../sizeSelector';
+import AddToCart from '../addToCart';
+import use2BStore from '../../stores/2bStore';
 
 interface IProduct {
     product: Product
 }
 
 const Product: FC<IProduct> = ({ product }) => {
+    const orderForm = use2BStore(state => state.orderForm)
     const [selectedSku, setSelectedSKU] = useState(product.items[0].itemId)
     const [sku] = product.items
     const [image] = sku.images
@@ -32,6 +35,8 @@ const Product: FC<IProduct> = ({ product }) => {
             </Link>
 
             <Price item={sku} />
+
+            {orderForm && <AddToCart sku={selectedSku} seller={sku.sellers[0].sellerId} orderFormId={orderForm.orderFormId} />}
         </div>
     )
 }

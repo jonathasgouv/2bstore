@@ -1,0 +1,23 @@
+#root > footer {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: #F8F7FC;
+    padding: 60px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 40px 20px;
+    }
+
+    .footerCopyright {
+        font-weight: 500;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        color: #110d2f;
+    }
+}

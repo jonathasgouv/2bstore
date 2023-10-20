@@ -1,9 +1,8 @@
 import { FC, useEffect, useState } from 'react'
-import Slider, { Settings as SliderSettings } from "react-slick";
+import Slider, { Settings as SliderSettings }  from "react-slick";
 import { getProductsByCollection } from '../../helpers/vtex';
 
 import './shelf.scss'
-import Price from '../price';
 import Product from './product';
 
 interface IShelf {
@@ -33,7 +32,30 @@ const Shelf: FC<IShelf> = ({ title, collectionId, numberOfProducts }) => {
         slidesToShow: 4,
         slidesToScroll: 4,
         autoplay: false,
-        autoplaySpeed: 5000
+        autoplaySpeed: 5000,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                },
+            },
+            {
+                breakpoint: 350,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     return (

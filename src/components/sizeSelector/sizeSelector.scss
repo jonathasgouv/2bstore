@@ -19,7 +19,8 @@
         text-align: center;
         color: #e8335d;
         transition: all 0.2s ease-in-out;
-
+        flex-shrink: 0;
+        
         &:hover {
             cursor: pointer;
             background: transparent;
