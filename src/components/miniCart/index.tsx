@@ -54,9 +54,9 @@ const MiniCart: FC = () => {
                             <span className="miniCartPriceSubtotal">Subtotal</span>
                             <p className="miniCartPriceSubtotalValue">{format(orderForm.value / 100)}</p>
                         </div>
-                        <button className="miniCartBuyBtn">
+                        <a href={`${import.meta.env.VITE_BASE_URL_NO_PROXY}/checkout/?orderFormId=${orderForm.orderFormId}#/email`} target="_blank" className="miniCartBuyBtn">
                             Finalizar compra
-                        </button>
+                        </a>
                     </div>
                 )}
             </aside>
