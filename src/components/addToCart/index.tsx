@@ -13,7 +13,7 @@ interface IAddToCart {
     orderFormId: string;
 }
 
-const AddToCart: FC<IAddToCart> = ({ sku, quantity = 1, label = 'Comprar', seller = 1, orderFormId }) => {
+const AddToCart: FC<IAddToCart> = ({ sku, quantity = 1, label = 'Comprar', seller = '1', orderFormId }) => {
     const [isLoading, setIsLoading] = useState(false)
     const { updateOrderForm, toggleMiniCart } = use2BStore((state) => {
         return {
