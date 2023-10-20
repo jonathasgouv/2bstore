@@ -1,4 +1,18 @@
 main {
+    min-height: 80vh;
+    position: relative;
+
+    .loader {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border: 5px solid #E8335D;
+        border-bottom-color: #fff;
+    }
+
     .productMain {
         display: flex;
         justify-content: center;
