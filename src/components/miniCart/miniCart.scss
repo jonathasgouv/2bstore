@@ -48,6 +48,8 @@
             width: inherit;
             display: flex;
             flex-direction: column;
+            max-height: calc(100vh - 150px);
+            overflow: auto;
 
             a {
                 text-decoration: none;
@@ -194,8 +196,8 @@
             align-items: center;
             justify-content: center;
             position: absolute;
-            top: 50%;       
-            transform: translateY(-50%);     
+            top: 50%;
+            transform: translateY(-50%);
             gap: 20px;
             padding: 50px;
             text-align: center;
@@ -211,7 +213,7 @@
                 font-weight: normal;
                 font-size: 14px;
                 letter-spacing: 0.05em;
-                color: #110d2f;                  
+                color: #110d2f;
             }
 
             .miniCartBuyBtn {
@@ -241,6 +243,21 @@
             position: fixed;
             bottom: 0;
             border-top: solid 1px #F2F0F7;
+
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            &::-webkit-scrollbar {
+                height: 4px;
+                width: 10px;
+                background: rgb(165, 165, 165);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: rgba(0, 0, 0, 0.158);
+                border-radius: 0px;
+            }
 
             .miniCartPrice {
                 width: 100%;
