@@ -31,7 +31,7 @@ const Shelf: FC<IShelf> = ({ title, collectionId, numberOfProducts }) => {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 4,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 5000,
         responsive: [
             {
@@ -49,7 +49,7 @@ const Shelf: FC<IShelf> = ({ title, collectionId, numberOfProducts }) => {
                 },
             },
             {
-                breakpoint: 350,
+                breakpoint: 378,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
