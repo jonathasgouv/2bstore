@@ -2,3 +2,61 @@
     max-width: min(95%, 1620px);
     margin: auto;
 }
+
+.__loading {
+    pointer-events: none;
+    position: relative;
+    transition: all .3s
+}
+
+.__loading * {
+    pointer-events: none
+}
+
+.__loading:before {
+    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(1.5px);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 993
+}
+
+.__loading:after {
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+    border: 6px solid #E8335D;
+    border-radius: 50%;
+    border-top-color: transparent;
+    content: "";
+    height: 20px;
+    left: calc(50% - 9pt);
+    position: absolute;
+    top: calc(50% - 9pt);
+    width: 20px;
+    z-index: 994
+}
+
+
+@-webkit-keyframes spin {
+    0% {
+        transform: rotate(0)
+    }
+
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0)
+    }
+
+    to {
+        transform: rotate(1turn)
+    }
+}

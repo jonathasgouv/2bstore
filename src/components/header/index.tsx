@@ -5,19 +5,29 @@ import { Link } from "react-router-dom"
 
 
 const Header = () => {
-    const { orderForm, toggleMiniCart } = use2BStore(state => {
+    const { orderForm, toggleMiniCart, toggleMobileMenu } = use2BStore(state => {
         return {
             orderForm: state.orderForm,
-            toggleMiniCart: state.toggleMiniCart
+            toggleMiniCart: state.toggleMiniCart,
+            toggleMobileMenu: state.toggleMobileMenu
         }
     })
 
-    console.log({orderForm})
-    
+    console.log({ orderForm })
+
     return (
         <header>
             <TopBar />
             <div className="container">
+                <div className="mobileMenuBtn" onClick={toggleMobileMenu}>
+                    <div className="icon">
+                        <svg viewBox="0 0 100 80" width="30" height="30" fill="#ffccd8">
+                            <rect width="100" height="10"></rect>
+                            <rect y="30" width="100" height="10"></rect>
+                            <rect y="60" width="100" height="10"></rect>
+                        </svg>
+                    </div>
+                </div>
                 <div className="logo">
                     <Link to="/">
                         <svg id="Grupo_807" data-name="Grupo 807" xmlns="http://www.w3.org/2000/svg" width="140.361" height="32" viewBox="0 0 140.361 32">

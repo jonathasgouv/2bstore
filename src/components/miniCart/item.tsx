@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { OrderFormItem } from '../../typings/orderform'
 import Quantity from './quantity'
 import use2BStore from '../../stores/2bStore'
@@ -11,6 +11,7 @@ interface IItem {
 }
 
 const Item: FC<IItem> = ({ item, index }) => {
+    const [isLoading, setIsLoading] = useState(false)
     const { updateOrderForm, orderForm, toggleMiniCart } = use2BStore(state => {
         return {
             updateOrderForm: state.updateOrderForm,
@@ -27,7 +28,8 @@ const Item: FC<IItem> = ({ item, index }) => {
     const { format } = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
 
     const updateItemQuantity = async (quantity: number) => {
-        console.log({ quantity })
+        setIsLoading(true)
+
         const itemInfo = [{
             quantity,
             index
@@ -36,6 +38,8 @@ const Item: FC<IItem> = ({ item, index }) => {
         const newOrderForm = await updateSkusOnCart(itemInfo, orderForm?.orderFormId as string)
 
         if (newOrderForm) updateOrderForm(newOrderForm)
+
+        setIsLoading(false)
     }
 
     return (
@@ -69,7 +73,7 @@ const Item: FC<IItem> = ({ item, index }) => {
                     Tamanho: {size}
                 </p>
                 <div className="miniCartItemPriceInfo">
-                    <Quantity item={item} onChange={(quantity) => updateItemQuantity(quantity)} />
+                    <Quantity item={item} isLoading={isLoading} onChange={(quantity) => updateItemQuantity(quantity)} />
                     <div className="miniCartItemPrices">
                         {hasListPrice && (
                             <s className="miniCartItemPrice">

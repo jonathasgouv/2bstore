@@ -10,6 +10,7 @@ import use2BStore from '../../stores/2bStore'
 
 import './product.scss'
 import ProductImages from '../../components/productImages'
+import ShippingCalculator from '../../components/shippingCalculator'
 
 const Product: FC = () => {
     const orderForm = use2BStore(state => state.orderForm)
@@ -62,7 +63,7 @@ const Product: FC = () => {
 
                             <div className="productInfo">
                                 <h1 className="productName">
-                                    {item.name}
+                                    {item.name.replace(item.Tamanho[0], '')}
                                 </h1>
 
                                 <p className="productRef">
@@ -77,6 +78,8 @@ const Product: FC = () => {
                                 </div>
 
                                 <AddToCart sku={item.itemId} quantity={1} seller={item.sellers[0].sellerId} label='Adicionar ao carrinho' orderFormId={orderForm?.orderFormId as string} />
+
+                                <ShippingCalculator sku={item.itemId} />
                             </div>
                         </section>
                     </div>

@@ -130,6 +130,13 @@
                             margin: 20px 0;
                             min-width: 110px;
 
+                            &.__loading {
+                                &:after {
+                                    width: 10px;
+                                    height: 10px;
+                                }
+                            }
+
                             .miniCartItemQuantityRemove,
                             .miniCartItemQuantityAdd {
                                 transition: all 0.2s ease-in-out;
@@ -147,6 +154,7 @@
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
+                                padding: 10px 0;
                             }
 
                             .miniCartItemQuantityCurrent {

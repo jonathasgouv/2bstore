@@ -12,6 +12,16 @@
         align-items: center;
         padding: 20px 0;
 
+        .mobileMenuBtn {
+            &:hover {
+                cursor: pointer;
+            }
+
+            @media (min-width: 768px) {
+                display: none;
+            }
+        }
+
         .departments {
             @media (max-width: 768px) {
                 display: none;
@@ -35,6 +45,14 @@
 
                     li {
                         text-transform: uppercase;
+                    }
+
+                    &.ofertas {
+                        color: #E8335D;
+
+                        &:hover {
+                            color: #ffccd8;
+                        }
                     }
                 }
             }

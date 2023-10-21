@@ -1,0 +1,85 @@
+.mobileMenuWrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0, 0, 0, 0);
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+
+    &.open {
+        display: block;
+        background: rgb(0, 0, 0, 0.5);
+        z-index: 9999;
+
+        .mobileMenu {
+            left: 0px;
+        }
+    }
+
+    .mobileMenu {
+        width: min(100vw, 400px);
+        height: 100vh;
+        background-color: #c55a73;
+        position: fixed;
+        left: max(-100vw, -400px);
+        transition: all 0.2s ease-in-out;
+
+        &Header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 22px;
+            box-shadow: 0px 8px 10px 1px #00000024;
+
+            .mobileMenuTitle {
+                font-weight: bold;
+                font-size: 18px;
+                letter-spacing: 0.05em;
+                color: #ffccd8;
+            }
+
+            .mobileMenuCloseBtn {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &Body {
+            .departments {   
+                padding: 30px;
+ 
+                &List {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+    
+                    a {
+                        text-decoration: none;
+                        font-weight: bold;
+                        font-size: 20px;
+                        letter-spacing: 0.09em;
+                        color: #ffccd8;
+                        transition: all 0.2s ease-in-out;
+    
+                        &:hover {
+                            color: #E8335D;
+                        }
+    
+                        li {
+                            text-transform: uppercase;
+                        }
+
+                        &.ofertas {
+                            color: #E8335D;
+    
+                            &:hover {
+                                color: #ffccd8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+.shippingSimulatorWrapper {
+    width: 100%;
+    margin: 40px 0;
+
+    .shippingSimulatorTitle {
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        color: #110d2f;
+    }
+
+    .shippingSimulatorCalculate {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 20px 0;
+        margin-top: 10px;
+        border-top: solid 1px #D9D8E6;
+        border-bottom: dotted 1px #D9D8E6;
+
+        &Input {
+            width: 100px;
+            background: transparent;
+            border: solid 1px #D9D8E6;
+            border-radius: 20px;
+            padding: 10px;
+            padding-left: 20px;
+            font-weight: normal;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            color: #2e2e2e;
+        }
+
+        &Button {
+            width: 120px;
+            background: transparent;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 0.09em;
+            color: #E8335D;
+            border: solid 1px #E8335D;
+            border-radius: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: all 0.2s ease-in-out;
+
+            &:disabled {
+                color: #a19e9f;
+                border: solid 1px #a19e9f;
+                pointer-events: none;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background: #E8335D;
+                color: #fff;
+            }
+        }
+
+        &Link {
+            font-weight: normal;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            margin-left: auto;
+            text-decoration: none;
+            color: #e8335d;
+        }
+    }
+
+    .ShippingSimulatorOptions {
+        &Empty {
+            margin: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            text-align: center;
+            color: #110d2f;
+        }
+
+        &Option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border-bottom: dotted 1px #D9D8E6;
+
+            .optionEstimative {
+                .optionName {
+                    font-weight: normal;
+                    font-size: 14px;
+                    letter-spacing: 0.05em;
+                    color: #110d2f;
+                    margin-bottom: 5px;
+                }
+
+                .optionDate {
+                    font-weight: normal;
+                    font-size: 12px;
+                    letter-spacing: 0.05em;
+                    color: #110d2f;                    
+                }
+            }
+
+            .optionPrice {
+                font-weight: bold;
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                color: #110d2f;
+            }
+        }
+    }
+}

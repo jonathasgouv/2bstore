@@ -5,10 +5,10 @@ export const getOrderFormById = async (orderFormId: string): Promise<OrderForm |
         const baseUrl = import.meta.env.VITE_BASE_URL
         const response = await fetch(`${baseUrl}/api/checkout/pub/orderForm/${orderFormId}`)
         const data = await response.json() as OrderForm
-    
+
         return data
     } catch (_) {
-        return undefined    
+        return undefined
     }
 }
 
@@ -17,7 +17,7 @@ export const getProductsByCollection = async (collectionId: number, numberOfItem
         const baseUrl = import.meta.env.VITE_BASE_URL
         const response = await fetch(`${baseUrl}/api/catalog_system/pub/products/search?fq=productClusterIds:${collectionId}&_from=1&_to=${numberOfItems}`)
         const data = await response.json() as Product[]
-    
+
         return data
     } catch (_) {
         return []
@@ -36,10 +36,10 @@ export const addSkusToCart = async (orderItems: { id: string, seller: string, qu
         })
 
         const data = await response.json() as OrderForm
-    
+
         return data
     } catch (_) {
-        return undefined    
+        return undefined
     }
 }
 
@@ -56,10 +56,10 @@ export const updateSkusOnCart = async (orderItems: { index: number, quantity: nu
         })
 
         const data = await response.json() as OrderForm
-    
+
         return data
     } catch (_) {
-        return undefined    
+        return undefined
     }
 }
 
@@ -68,9 +68,37 @@ export const getProductsBySlug = async (slug: string): Promise<Product[]> => {
         const baseUrl = import.meta.env.VITE_BASE_URL
         const response = await fetch(`${baseUrl}/api/catalog_system/pub/products/search/${slug}/p`)
         const data = await response.json() as Product[]
-    
+
         return data
     } catch (_) {
         return []
+    }
+}
+
+interface ISimulateShipping {
+    items: {
+        id: string;
+        quantity: number;
+        seller: string;
+    }[];
+    cep: string;
+    country: string;
+}
+
+export const simulateCart = async (simulationData: ISimulateShipping): Promise<OrderForm['shippingData'] | undefined> => {
+    try {
+        const baseUrl = import.meta.env.VITE_BASE_URL
+        const response = await fetch(`${baseUrl}/api/checkout/pub/orderForms/simulation?sc=1`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(simulationData)
+        })
+        const data = await response.json() as OrderForm['shippingData']
+
+        return data
+    } catch (_) {
+        return undefined
     }
 }

@@ -15,6 +15,7 @@ import MiniCart from './components/miniCart';
 import Footer from './components/footer';
 import Product from './pages/product';
 import Wrapper from './Wrapper';
+import MobileMenu from './components/mobileMenu';
 
 const App = () => {
   const { updateOrderForm, orderForm } = use2BStore()
@@ -38,6 +39,7 @@ const App = () => {
   return (
     <Router>
       <Wrapper>
+        <MobileMenu />
         <MiniCart />
         <Header />
         <Routes>

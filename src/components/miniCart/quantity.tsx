@@ -3,14 +3,15 @@ import { OrderFormItem } from '../../typings/orderform'
 
 interface IQuantity {
     item: OrderFormItem,
+    isLoading: boolean,
     onChange: (newQuantity: number) => void
 }
 
-const Quantity: FC<IQuantity> = ({ item, onChange }) => {
+const Quantity: FC<IQuantity> = ({ item, onChange, isLoading }) => {
     const { format } = new Intl.NumberFormat('pt-BR', { minimumIntegerDigits: 2 })
 
     return (
-        <div className="miniCartItemQuantity">
+        <div className={`miniCartItemQuantity ${isLoading ? '__loading' : ''}`}>
             <span className="miniCartItemQuantityRemove" onClick={() => onChange(item.quantity - 1)}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="1.833" viewBox="0 0 11 1.833">
                     <path id="minus" d="M10.542-5.25H.458A.458.458,0,0,0,0-4.792v.917a.458.458,0,0,0,.458.458H10.542A.458.458,0,0,0,11-3.875v-.917A.458.458,0,0,0,10.542-5.25Z" transform="translate(0 5.25)" fill="#ffccd8" />
