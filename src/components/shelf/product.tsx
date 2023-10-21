@@ -26,7 +26,9 @@ const Product: FC<IProduct> = ({ product }) => {
                 {Object.keys(highlights).map(key => <p className="productHighlight">{highlights[key]}</p>)}
             </div>
 
-            <img className="productImage" src={image.imageUrl} alt="Imagem do produto" />
+            <Link className="productTitle" to={`/${product.linkText}/p?sku=${selectedSku}`}>
+                <img className="productImage" src={image.imageUrl} alt="Imagem do produto" />
+            </Link>
 
             <SizeSelector product={product} onSelect={(sku) => setSelectedSKU(sku)} />
 

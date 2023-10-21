@@ -16,6 +16,7 @@ import Footer from './components/footer';
 import Product from './pages/product';
 import Wrapper from './Wrapper';
 import MobileMenu from './components/mobileMenu';
+import NotFound from './pages/404';
 
 const App = () => {
   const { updateOrderForm, orderForm } = use2BStore()
@@ -43,14 +44,9 @@ const App = () => {
         <MiniCart />
         <Header />
         <Routes>
-          {/* <Route path="/about">
-            <Home />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route> */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />}  />
           <Route path="/:slug/p" element={<Product />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </Wrapper>

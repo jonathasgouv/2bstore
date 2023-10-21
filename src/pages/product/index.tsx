@@ -1,5 +1,5 @@
 import { FC, useState, useEffect, useCallback } from 'react'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useParams, useSearchParams, useNavigate  } from 'react-router-dom'
 import { getProductsBySlug } from '../../helpers/vtex'
 import Loading from '../../components/loading'
 import Shelf from '../../components/shelf'
@@ -19,6 +19,7 @@ const Product: FC = () => {
     const [item, setItem] = useState<Item>()
     const { slug } = useParams()
     const [searchParams, setSearchParams] = useSearchParams({ sku: '' })
+    const navigate = useNavigate()
     const sku = searchParams.get('sku')
 
     const getProduct = useCallback(
@@ -33,8 +34,12 @@ const Product: FC = () => {
                 setItem(currentItem)
                 setSearchParams({ sku: currentItem.itemId })
                 setIsLoading(false)
+
+                return
             }
-        }, [setSearchParams, sku]
+
+            navigate('/404')
+        }, [setSearchParams, sku, navigate]
     )
 
     useEffect(() => {
