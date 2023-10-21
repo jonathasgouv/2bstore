@@ -15,10 +15,10 @@ interface IAddToCart {
 
 const AddToCart: FC<IAddToCart> = ({ sku, quantity = 1, label = 'Comprar', seller = '1', orderFormId }) => {
     const [isLoading, setIsLoading] = useState(false)
-    const orderForm = use2BStore(state => state.orderForm)
-    const { updateOrderForm, toggleMiniCart } = use2BStore((state) => {
+    const { updateOrderForm, toggleMiniCart, orderForm } = use2BStore((state) => {
         return {
             updateOrderForm: state.updateOrderForm,
+            orderForm: state.orderForm,
             toggleMiniCart: state.toggleMiniCart
         }
     })
