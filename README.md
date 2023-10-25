@@ -17,6 +17,7 @@ Desafio técnico realizado para a agência 2B.
 - Alguns funcionamentos exigiram páginas ou componentes não presentes no layout do figma, nesse caso tentei apenas seguir o tema geral do site. (Exemplo: página 404.)
 
 ### Disclaimers
+- Para evitar erros de CORS tive que utilizar um proxy público. Por ser público ele 'dorme' se ficar muito tempo inativo, sendo assim as prateleiras podem demorar um pouco a carregar no primeiro acesso. Após isso funcionará normalmente.
 - Na VTEX um produto com estoque não pode ser adicionado em quantidade maior que o estoque disponível. Sendo assim, é possível que um produto não tenha sua quantidade aumentada mesmo o adicionando duas vezes. Não é um erro, apenas significa que aquele produto tem apenas uma unidade em estoque.
 
 ## Instalação
